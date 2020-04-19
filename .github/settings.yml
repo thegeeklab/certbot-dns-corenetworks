@@ -1,9 +1,8 @@
 ---
 repository:
-  name: corenetworks
-  description: Python library for the core-networks.de DNS API
-  homepage: https://corenetworks.geekdocs.de
-  topics: corenetworks, api, dns, python
+  name: certbot-dns-corenetworks
+  description: Certbot DNS plugin the core-networks.de DNS API
+  topics: certbot, corenetworks, api, dns, python
 
   private: false
   has_issues: true
