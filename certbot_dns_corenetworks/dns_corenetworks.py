@@ -210,7 +210,7 @@ class _CorenetworksClient(object):
             logger.debug("Testing {0} for domain {1}...".format(guess, domain_name))
             try:
                 info = self.client.zone(guess)[0]
-            except Exception:
+            except CoreNetworksException:
                 continue
 
             logger.debug("Found zone '{zone}': {info}".format(zone=guess, info=info))
