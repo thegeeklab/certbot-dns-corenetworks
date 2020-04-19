@@ -1,4 +1,4 @@
-"""Tests for certbot_dns_ispconfig.dns_ispconfig."""
+"""Tests for certbot_dns_corenetworks.dns_corenetworks."""
 
 import unittest
 
