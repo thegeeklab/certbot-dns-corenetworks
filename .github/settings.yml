@@ -2,7 +2,7 @@
 repository:
   name: certbot-dns-corenetworks
   description: Certbot DNS plugin for the core-networks.de DNS API
-  topics: certbot, corenetworks, api, dns, python
+  topics: certbot, certbot-dns, corenetworks, api, dns, python
 
   private: false
   has_issues: true
