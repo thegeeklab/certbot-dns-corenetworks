@@ -12,6 +12,7 @@ flake8-pep3101
 flake8-eradicate; python_version >= "3.6"
 pep8-naming
 wheel
+mock
 pytest
 pytest-mock
 pytest-cov
