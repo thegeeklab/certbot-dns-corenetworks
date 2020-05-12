@@ -72,7 +72,7 @@ setup(
         "certbot>=0.15",
         "setuptools",
         "zope.interface",
-        "corenetworks>=0.1.1",
+        "corenetworks>=0.1.3",
     ],
     dependency_links=[],
 )
