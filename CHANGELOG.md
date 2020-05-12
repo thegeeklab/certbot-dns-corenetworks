@@ -1,2 +1,2 @@
 * BUGFIX
-  * bump corenetworks library to version>=0.1.3
+  * bump corenetworks library to version>=0.1.4
