@@ -1,2 +1,4 @@
 - INTERNAL
   - migrate to thegeeklab namespace
+- BUGFIX
+  - pin `parsedatetime` to <2.6 to fix tests on Python 2.7
