@@ -1,11 +1,12 @@
 # certbot-dns-corenetworks
 
-[![Build Status](https://img.shields.io/drone/build/xoxys/certbot-dns-corenetworks?logo=drone)](https://cloud.drone.io/xoxys/certbot-dns-corenetworks)
+[![Build Status](https://img.shields.io/drone/build/thegeeklab/certbot-dns-corenetworks?logo=drone)](https://cloud.drone.io/thegeeklab/certbot-dns-corenetworks)
 [![Python Version](https://img.shields.io/pypi/pyversions/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
 [![PyPi Status](https://img.shields.io/pypi/status/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
 [![PyPi Release](https://img.shields.io/pypi/v/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
-[![Codecov](https://img.shields.io/codecov/c/github/xoxys/certbot-dns-corenetworks)](https://codecov.io/gh/xoxys/certbot-dns-corenetworks)
-[![License: MIT](https://img.shields.io/github/license/xoxys/certbot-dns-corenetworks)](LICENSE)
+[![Codecov](https://img.shields.io/codecov/c/github/thegeeklab/certbot-dns-corenetworks)](https://codecov.io/gh/thegeeklab/certbot-dns-corenetworks)
+[![GitHub contributors](https://img.shields.io/github/contributors/thegeeklab/certbot-dns-corenetworks)](https://github.com/thegeeklab/certbot-dns-corenetworks/graphs/contributors)
+[![License: MIT](https://img.shields.io/github/license/thegeeklab/certbot-dns-corenetworks)](<[LICENSE](https://github.com/thegeeklab/certbot-dns-corenetworks/blob/master/LICENSE)>)
 
 ## Install
 
@@ -52,10 +53,10 @@ certbot certonly \\
     -d '*.example.com'
 ```
 
+## Contributors
+
+Special thanks goes to all [contributors](https://github.com/thegeeklab/certbot-dns-corenetworks/graphs/contributors).
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Maintainers and Contributors
-
-[Robert Kaussow](https://github.com/xoxys)
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/thegeeklab/certbot-dns-corenetworks/blob/master/LICENSE) file for details.
