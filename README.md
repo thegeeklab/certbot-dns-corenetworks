@@ -6,7 +6,7 @@
 [![PyPi Release](https://img.shields.io/pypi/v/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
 [![Codecov](https://img.shields.io/codecov/c/github/thegeeklab/certbot-dns-corenetworks)](https://codecov.io/gh/thegeeklab/certbot-dns-corenetworks)
 [![GitHub contributors](https://img.shields.io/github/contributors/thegeeklab/certbot-dns-corenetworks)](https://github.com/thegeeklab/certbot-dns-corenetworks/graphs/contributors)
-[![License: MIT](https://img.shields.io/github/license/thegeeklab/certbot-dns-corenetworks)](<[LICENSE](https://github.com/thegeeklab/certbot-dns-corenetworks/blob/master/LICENSE)>)
+[![License: MIT](https://img.shields.io/github/license/thegeeklab/certbot-dns-corenetworks)](https://github.com/thegeeklab/certbot-dns-corenetworks/blob/master/LICENSE)
 
 ## Install
 
