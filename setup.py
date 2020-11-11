@@ -70,7 +70,7 @@ setup(
     # FIXME: https://github.com/bear/parsedatetime/pull/247
     install_requires=[
         "acme",
-        'parsedatetime<2.6; python_version < "3"',
+        'parsedatetime<2.7; python_version < "3"',
         "certbot>=0.15",
         "setuptools",
         "zope.interface",
