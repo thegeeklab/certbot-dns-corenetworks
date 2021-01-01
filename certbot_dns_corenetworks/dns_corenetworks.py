@@ -2,7 +2,7 @@
 import logging
 import re
 
-import zope.interface  # noqa
+import zope.interface
 from certbot import errors
 from certbot import interfaces
 from certbot.plugins import dns_common
@@ -33,7 +33,7 @@ class Authenticator(dns_common.DNSAuthenticator):
         self.credentials = None
 
     @classmethod
-    def add_parser_arguments(cls, add):  # noqa
+    def add_parser_arguments(cls, add):
         super(Authenticator, cls).add_parser_arguments(add, default_propagation_seconds=60)
         add(
             "credentials",
@@ -41,7 +41,7 @@ class Authenticator(dns_common.DNSAuthenticator):
             default="/etc/letsencrypt/corenetworks.cfg"
         )
 
-    def more_info(self):  # noqa
+    def more_info(self):
         return "This plugin configures a DNS TXT record to respond to a dns-01 challenge using " \
                "the Core Networks DNS API."
 
