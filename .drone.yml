@@ -32,7 +32,7 @@ image_pull_secrets:
 
 trigger:
   ref:
-  - refs/heads/master
+  - refs/heads/main
   - refs/tags/**
   - refs/pull/**
 
@@ -118,7 +118,7 @@ image_pull_secrets:
 
 trigger:
   ref:
-  - refs/heads/master
+  - refs/heads/main
   - refs/tags/**
   - refs/pull/**
 
@@ -149,7 +149,7 @@ image_pull_secrets:
 
 trigger:
   ref:
-  - refs/heads/master
+  - refs/heads/main
   - refs/tags/**
   - refs/pull/**
 
@@ -212,7 +212,7 @@ image_pull_secrets:
 
 trigger:
   ref:
-  - refs/heads/master
+  - refs/heads/main
   - refs/tags/**
   - refs/pull/**
 
@@ -250,7 +250,7 @@ image_pull_secrets:
 
 trigger:
   ref:
-  - refs/heads/master
+  - refs/heads/main
   - refs/tags/**
   status:
   - success
@@ -261,6 +261,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 6ea9eef02934efbc69c11c53dabe8d0019ebc74e1a0f61348379ea2c30132438
+hmac: ad1db2d5b56fbb3a9573f53f3a79f17c0d6775347b44572182bf60d89b577717
 
 ...

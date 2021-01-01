@@ -52,7 +52,7 @@ local PipelineLint = {
     },
   ],
   trigger: {
-    ref: ['refs/heads/master', 'refs/tags/**', 'refs/pull/**'],
+    ref: ['refs/heads/main', 'refs/tags/**', 'refs/pull/**'],
   },
 };
 
@@ -99,7 +99,7 @@ local PipelineTest = {
     'lint',
   ],
   trigger: {
-    ref: ['refs/heads/master', 'refs/tags/**', 'refs/pull/**'],
+    ref: ['refs/heads/main', 'refs/tags/**', 'refs/pull/**'],
   },
 };
 
@@ -130,7 +130,7 @@ local PipelineSecurity = {
     'test',
   ],
   trigger: {
-    ref: ['refs/heads/master', 'refs/tags/**', 'refs/pull/**'],
+    ref: ['refs/heads/main', 'refs/tags/**', 'refs/pull/**'],
   },
 };
 
@@ -194,7 +194,7 @@ local PipelineBuildPackage = {
     'security',
   ],
   trigger: {
-    ref: ['refs/heads/master', 'refs/tags/**', 'refs/pull/**'],
+    ref: ['refs/heads/main', 'refs/tags/**', 'refs/pull/**'],
   },
 };
 
@@ -226,7 +226,7 @@ local PipelineNotifications = {
     'build-package',
   ],
   trigger: {
-    ref: ['refs/heads/master', 'refs/tags/**'],
+    ref: ['refs/heads/main', 'refs/tags/**'],
     status: ['success', 'failure'],
   },
 };
