@@ -56,6 +56,7 @@ steps:
   - pip install poetry poetry-dynamic-versioning -qq
   - poetry install -q
   - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
@@ -67,6 +68,7 @@ steps:
   - pip install poetry poetry-dynamic-versioning -qq
   - poetry install -q
   - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
@@ -78,6 +80,7 @@ steps:
   - pip install poetry poetry-dynamic-versioning -qq
   - poetry install -q
   - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
@@ -89,6 +92,7 @@ steps:
   - pip install poetry poetry-dynamic-versioning -qq
   - poetry install -q
   - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
@@ -257,6 +261,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: d88e65a54ca8cdcdb8bf34419cdacdc6fc0733fcd7f09d5bb08e1062fa0023c5
+hmac: 6ea9eef02934efbc69c11c53dabe8d0019ebc74e1a0f61348379ea2c30132438
 
 ...

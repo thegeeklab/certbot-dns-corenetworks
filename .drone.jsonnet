@@ -8,6 +8,7 @@ local PythonVersion(pyversion='3.6') = {
     'pip install poetry poetry-dynamic-versioning -qq',
     'poetry install -q',
     'poetry run pytest',
+    'poetry version',
   ],
   depends_on: [
     'fetch',
