@@ -1,4 +1,22 @@
-- INTERNAL
-  - migrate to thegeeklab namespace
-- BUGFIX
-  - pin `parsedatetime` to <2.6 to fix tests on Python 2.7
+# Changelog
+
+## v0.2.0 (2021-01-01)
+
+### Docs
+
+- add contributing information
+
+### Build
+
+- migrate to poetry
+
+
+### Others
+
+- replace master by main as default branch
+- use renovate preset config
+
+### Breaking Chnaged
+
+- drop Python 2.7 support
+- drop Python 3.5 support
