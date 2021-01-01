@@ -55,7 +55,8 @@ certbot certonly \
 
 ## Contributors
 
-Special thanks goes to all [contributors](https://github.com/thegeeklab/certbot-dns-corenetworks/graphs/contributors).
+Special thanks goes to all [contributors](https://github.com/thegeeklab/certbot-dns-corenetworks/graphs/contributors). If you would like to contribute,
+please see the [instructions](https://github.com/thegeeklab/certbot-dns-corenetworks/blob/main/CONTRIBUTING.md).
 
 ## License
 
