@@ -43,9 +43,10 @@ local PipelineLint = {
         PY_COLORS: 1,
       },
       commands: [
-        'pip install -r dev-requirements.txt -qq',
-        'pip install -qq .',
-        'flake8 ./certbot_dns_corenetworks',
+        'git fetch -tq',
+        'pip install poetry poetry-dynamic-versioning -qq',
+        'poetry install -q',
+        'poetry run flake8 ./certbot_dns_corenetworks',
       ],
     },
   ],

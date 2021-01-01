@@ -20,9 +20,10 @@ steps:
 - name: flake8
   image: python:3.9
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - flake8 ./certbot_dns_corenetworks
+  - git fetch -tq
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run flake8 ./certbot_dns_corenetworks
   environment:
     PY_COLORS: 1
 
@@ -257,6 +258,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 1ba1ac96c775ceb0a97878698fcd2f3c7a2a85b1aaa1aa3bc4c6f4414f0dac6c
+hmac: ec82447f8ba57b5de2aa48c6eb69b06ee783eb87249e447c384a38d3b1bab2a8
 
 ...
