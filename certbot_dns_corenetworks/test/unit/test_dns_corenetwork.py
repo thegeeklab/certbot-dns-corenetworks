@@ -34,7 +34,6 @@ class AuthenticatorTest(test_util.TempDirTestCase, dns_test_common.BaseAuthentic
         self.auth = Authenticator(self.config, "corenetworks")
 
         self.mock_client = mock.MagicMock()
-        # _get_corenetworks_client | pylint: disable=protected-access
         self.auth._get_corenetworks_client = mock.MagicMock(return_value=self.mock_client)
 
     def test_perform(self):
@@ -46,7 +45,6 @@ class AuthenticatorTest(test_util.TempDirTestCase, dns_test_common.BaseAuthentic
         self.assertEqual(expected, self.mock_client.mock_calls)
 
     def test_cleanup(self):
-        # _attempt_cleanup | pylint: disable=protected-access
         self.auth.nameCache["_acme-challenge." + DOMAIN] = "_acme-challenge." + DOMAIN
         self.auth._attempt_cleanup = True
         self.auth.cleanup([self.achall])

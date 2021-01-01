@@ -20,11 +20,11 @@ pip install certbot-dns-corenetworks
 
 To start using DNS authentication for the Core Networks DNS API, pass the following arguments on certbot's command line:
 
-| Option                                                               | Description                                      |
-|----------------------------------------------------------------------|--------------------------------------------------|
-| `--authenticator certbot-dns-corenetworks:dns-corenetworks`          | select the authenticator plugin (Required)       |
-| `--certbot-dns-corenetworks:dns-corenetworks-credentials`            | Hetzner DNS API credentials INI file. (Required) |
-| `--certbot-dns-corenetworks:dns-corenetworks-propagation-seconds`    | Seconds to wait for the TXT record to propagate  |
+| Option                                                            | Description                                      |
+| ----------------------------------------------------------------- | ------------------------------------------------ |
+| `--authenticator certbot-dns-corenetworks:dns-corenetworks`       | select the authenticator plugin (Required)       |
+| `--certbot-dns-corenetworks:dns-corenetworks-credentials`         | Hetzner DNS API credentials INI file. (Required) |
+| `--certbot-dns-corenetworks:dns-corenetworks-propagation-seconds` | Seconds to wait for the TXT record to propagate  |
 
 ## Credentials
 
@@ -38,18 +38,18 @@ certbot_dns_corenetworks:dns_corenetworks_password = secure_passwor
 To acquire a certificate for `example.com`
 
 ```bash
-certbot certonly \\
- --authenticator certbot-dns-corenetworks:dns-corenetworks \\
- --certbot-dns-corenetworks:dns-corenetworks-credentials /path/to/my/credentials.ini \\
+certbot certonly \
+ --authenticator certbot-dns-corenetworks:dns-corenetworks \
+ --certbot-dns-corenetworks:dns-corenetworks-credentials /path/to/my/credentials.ini \
  -d example.com
 ```
 
-To acquire a certificate for ``*.example.com``
+To acquire a certificate for `*.example.com`
 
 ```bash
-certbot certonly \\
-    --authenticator certbot-dns-corenetworks:dns-corenetworks \\
-    --certbot-dns-corenetworks:dns-corenetworks-credentials /path/to/my/credentials.ini \\
+certbot certonly \
+    --authenticator certbot-dns-corenetworks:dns-corenetworks \
+    --certbot-dns-corenetworks:dns-corenetworks-credentials /path/to/my/credentials.ini \
     -d '*.example.com'
 ```
 

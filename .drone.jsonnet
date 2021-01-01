@@ -1,16 +1,17 @@
-local PythonVersion(pyversion='2.7') = {
+local PythonVersion(pyversion='3.6') = {
   name: 'python' + std.strReplace(pyversion, '.', ''),
   image: 'python:' + pyversion,
   environment: {
     PY_COLORS: 1,
   },
   commands: [
-    'pip install -r dev-requirements.txt -qq',
-    'pip install -qq .',
-    'pytest tests --cov=certbot_dns_corenetworks --no-cov-on-fail',
+    'pip install poetry poetry-dynamic-versioning -qq',
+    'poetry install -q',
+    'poetry run pytest',
+    'poetry version',
   ],
   depends_on: [
-    'clone',
+    'fetch',
   ],
 };
 
@@ -24,15 +25,29 @@ local PipelineLint = {
   },
   steps: [
     {
-      name: 'flake8',
-      image: 'python:3.8',
+      name: 'yapf',
+      image: 'python:3.9',
       environment: {
         PY_COLORS: 1,
       },
       commands: [
-        'pip install -r dev-requirements.txt -qq',
-        'pip install -qq .',
-        'flake8 ./certbot_dns_corenetworks',
+        'git fetch -tq',
+        'pip install poetry poetry-dynamic-versioning -qq',
+        'poetry install -q',
+        'poetry run yapf -dr ./certbot_dns_corenetworks',
+      ],
+    },
+    {
+      name: 'flake8',
+      image: 'python:3.9',
+      environment: {
+        PY_COLORS: 1,
+      },
+      commands: [
+        'git fetch -tq',
+        'pip install poetry poetry-dynamic-versioning -qq',
+        'poetry install -q',
+        'poetry run flake8 ./certbot_dns_corenetworks',
       ],
     },
   ],
@@ -50,14 +65,20 @@ local PipelineTest = {
     arch: 'amd64',
   },
   steps: [
-    PythonVersion(pyversion='2.7'),
-    PythonVersion(pyversion='3.5'),
+    {
+      name: 'fetch',
+      image: 'python:3.9',
+      commands: [
+        'git fetch -tq',
+      ],
+    },
     PythonVersion(pyversion='3.6'),
     PythonVersion(pyversion='3.7'),
     PythonVersion(pyversion='3.8'),
+    PythonVersion(pyversion='3.9'),
     {
       name: 'codecov',
-      image: 'python:3.8',
+      image: 'python:3.9',
       environment: {
         PY_COLORS: 1,
         CODECOV_TOKEN: { from_secret: 'codecov_token' },
@@ -67,11 +88,10 @@ local PipelineTest = {
         'codecov --required -X gcov',
       ],
       depends_on: [
-        'python27',
-        'python35',
         'python36',
         'python37',
         'python38',
+        'python39',
       ],
     },
   ],
@@ -94,14 +114,15 @@ local PipelineSecurity = {
   steps: [
     {
       name: 'bandit',
-      image: 'python:3.8',
+      image: 'python:3.9',
       environment: {
         PY_COLORS: 1,
       },
       commands: [
-        'pip install -r dev-requirements.txt -qq',
-        'pip install -qq .',
-        'bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test',
+        'git fetch -tq',
+        'pip install poetry poetry-dynamic-versioning -qq',
+        'poetry install -q',
+        'poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test',
       ],
     },
   ],
@@ -124,12 +145,11 @@ local PipelineBuildPackage = {
   steps: [
     {
       name: 'build',
-      image: 'python:3.8',
-      environment: {
-        SETUPTOOLS_SCM_PRETEND_VERSION: '${DRONE_TAG##v}',
-      },
+      image: 'python:3.9',
       commands: [
-        'python setup.py sdist bdist_wheel',
+        'git fetch -tq',
+        'pip install poetry poetry-dynamic-versioning -qq',
+        'poetry build',
       ],
     },
     {
@@ -155,12 +175,15 @@ local PipelineBuildPackage = {
     },
     {
       name: 'publish-pypi',
-      image: 'plugins/pypi',
-      settings: {
-        username: { from_secret: 'pypi_username' },
-        password: { from_secret: 'pypi_password' },
-        repository: 'https://upload.pypi.org/legacy/',
-        skip_build: true,
+      image: 'python:3.9',
+      commands: [
+        'git fetch -tq',
+        'pip install poetry poetry-dynamic-versioning -qq',
+        'poetry publish -n',
+      ],
+      environment: {
+        POETRY_HTTP_BASIC_PYPI_USERNAME: { from_secret: 'pypi_username' },
+        POETRY_HTTP_BASIC_PYPI_PASSWORD: { from_secret: 'pypi_password' },
       },
       when: {
         ref: ['refs/tags/**'],

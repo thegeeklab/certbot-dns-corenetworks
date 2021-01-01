@@ -7,12 +7,23 @@ platform:
   arch: amd64
 
 steps:
-- name: flake8
-  image: python:3.8
+- name: yapf
+  image: python:3.9
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - flake8 ./certbot_dns_corenetworks
+  - git fetch -tq
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run yapf -dr ./certbot_dns_corenetworks
+  environment:
+    PY_COLORS: 1
+
+- name: flake8
+  image: python:3.9
+  commands:
+  - git fetch -tq
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run flake8 ./certbot_dns_corenetworks
   environment:
     PY_COLORS: 1
 
@@ -34,63 +45,61 @@ platform:
   arch: amd64
 
 steps:
-- name: python27
-  image: python:2.7
+- name: fetch
+  image: python:3.9
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - pytest tests --cov=certbot_dns_corenetworks --no-cov-on-fail
-  environment:
-    PY_COLORS: 1
-  depends_on:
-  - clone
-
-- name: python35
-  image: python:3.5
-  commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - pytest tests --cov=certbot_dns_corenetworks --no-cov-on-fail
-  environment:
-    PY_COLORS: 1
-  depends_on:
-  - clone
+  - git fetch -tq
 
 - name: python36
   image: python:3.6
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - pytest tests --cov=certbot_dns_corenetworks --no-cov-on-fail
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
-  - clone
+  - fetch
 
 - name: python37
   image: python:3.7
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - pytest tests --cov=certbot_dns_corenetworks --no-cov-on-fail
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
-  - clone
+  - fetch
 
 - name: python38
   image: python:3.8
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - pytest tests --cov=certbot_dns_corenetworks --no-cov-on-fail
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run pytest
+  - poetry version
   environment:
     PY_COLORS: 1
   depends_on:
-  - clone
+  - fetch
+
+- name: python39
+  image: python:3.9
+  commands:
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run pytest
+  - poetry version
+  environment:
+    PY_COLORS: 1
+  depends_on:
+  - fetch
 
 - name: codecov
-  image: python:3.8
+  image: python:3.9
   commands:
   - pip install codecov -qq
   - codecov --required -X gcov
@@ -99,11 +108,10 @@ steps:
       from_secret: codecov_token
     PY_COLORS: 1
   depends_on:
-  - python27
-  - python35
   - python36
   - python37
   - python38
+  - python39
 
 image_pull_secrets:
 - docker_config
@@ -127,11 +135,12 @@ platform:
 
 steps:
 - name: bandit
-  image: python:3.8
+  image: python:3.9
   commands:
-  - pip install -r dev-requirements.txt -qq
-  - pip install -qq .
-  - bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test
+  - git fetch -tq
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry install -q
+  - poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test
   environment:
     PY_COLORS: 1
 
@@ -157,11 +166,11 @@ platform:
 
 steps:
 - name: build
-  image: python:3.8
+  image: python:3.9
   commands:
-  - python setup.py sdist bdist_wheel
-  environment:
-    SETUPTOOLS_SCM_PRETEND_VERSION: ${DRONE_TAG##v}
+  - git fetch -tq
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry build
 
 - name: checksum
   image: alpine
@@ -184,13 +193,15 @@ steps:
     - refs/tags/**
 
 - name: publish-pypi
-  image: plugins/pypi
-  settings:
-    password:
+  image: python:3.9
+  commands:
+  - git fetch -tq
+  - pip install poetry poetry-dynamic-versioning -qq
+  - poetry publish -n
+  environment:
+    POETRY_HTTP_BASIC_PYPI_PASSWORD:
       from_secret: pypi_password
-    repository: https://upload.pypi.org/legacy/
-    skip_build: true
-    username:
+    POETRY_HTTP_BASIC_PYPI_USERNAME:
       from_secret: pypi_username
   when:
     ref:
@@ -250,6 +261,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: d107c344afb445a597ceee39eeb6ec40de5e7975391e23acd7c2b16d6c006025
+hmac: 6ea9eef02934efbc69c11c53dabe8d0019ebc74e1a0f61348379ea2c30132438
 
 ...
