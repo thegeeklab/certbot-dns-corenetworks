@@ -5,6 +5,7 @@
 ### Docs
 
 - add contributing information
+- switch to new certbot syntax
 
 ### Build
 
