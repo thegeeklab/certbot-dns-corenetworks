@@ -104,11 +104,10 @@ steps:
       from_secret: codecov_token
     PY_COLORS: 1
   depends_on:
-  - python27
-  - python35
   - python36
   - python37
   - python38
+  - python39
 
 image_pull_secrets:
 - docker_config
@@ -258,6 +257,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: ec82447f8ba57b5de2aa48c6eb69b06ee783eb87249e447c384a38d3b1bab2a8
+hmac: d88e65a54ca8cdcdb8bf34419cdacdc6fc0733fcd7f09d5bb08e1062fa0023c5
 
 ...

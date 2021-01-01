@@ -87,11 +87,10 @@ local PipelineTest = {
         'codecov --required -X gcov',
       ],
       depends_on: [
-        'python27',
-        'python35',
         'python36',
         'python37',
         'python38',
+        'python39',
       ],
     },
   ],
