@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.0 (2021-01-01)
+## v0.2.0 (2021-01-02)
 
 ### Docs
 
@@ -17,7 +17,7 @@
 - replace master by main as default branch
 - use renovate preset config
 
-### Breaking Chnaged
+### Breaking Changes
 
 - drop Python 2.7 support
 - drop Python 3.5 support
