@@ -40,7 +40,7 @@ dns-corenetworks = "certbot_dns_corenetworks.dns_corenetworks:Authenticator"
 [tool.poetry.dependencies]
 acme = "^1.10.1"
 certbot = "^1.10.1 "
-corenetworks = "^0.1.4"
+corenetworks = "^0.2.0"
 parsedatetime = "^2.6"
 python = "^3.6.0"
 "zope.interface" = "^5.2.0"
