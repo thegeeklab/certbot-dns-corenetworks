@@ -27,9 +27,6 @@ steps:
   environment:
     PY_COLORS: 1
 
-image_pull_secrets:
-- docker_config
-
 trigger:
   ref:
   - refs/heads/main
@@ -113,9 +110,6 @@ steps:
   - python38
   - python39
 
-image_pull_secrets:
-- docker_config
-
 trigger:
   ref:
   - refs/heads/main
@@ -143,9 +137,6 @@ steps:
   - poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test
   environment:
     PY_COLORS: 1
-
-image_pull_secrets:
-- docker_config
 
 trigger:
   ref:
@@ -207,9 +198,6 @@ steps:
     ref:
     - refs/tags/**
 
-image_pull_secrets:
-- docker_config
-
 trigger:
   ref:
   - refs/heads/main
@@ -245,9 +233,6 @@ steps:
     - success
     - failure
 
-image_pull_secrets:
-- docker_config
-
 trigger:
   ref:
   - refs/heads/main
@@ -261,6 +246,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 86742df377802e92b084f7c09b5cfa9fd92d2cb14840607e027ab8ff484341e5
+hmac: 423f275d3560cbd44a67f7f05e225355ea443660a74e8dbc8121dd03eac82857
 
 ...
