@@ -1,6 +1,6 @@
 # certbot-dns-corenetworks
 
-[![Build Status](https://img.shields.io/drone/build/thegeeklab/certbot-dns-corenetworks?logo=drone)](https://cloud.drone.io/thegeeklab/certbot-dns-corenetworks)
+[![Build Status](https://img.shields.io/drone/build/thegeeklab/certbot-dns-corenetworks?logo=drone)](https://drone.thegeeklab.de/thegeeklab/certbot-dns-corenetworks)
 [![Python Version](https://img.shields.io/pypi/pyversions/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
 [![PyPi Status](https://img.shields.io/pypi/status/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
 [![PyPi Release](https://img.shields.io/pypi/v/certbot-dns-corenetworks.svg)](https://pypi.org/project/certbot-dns-corenetworks/)
@@ -20,8 +20,8 @@ pip install certbot-dns-corenetworks
 
 To start using DNS authentication for the Core Networks DNS API, pass the following arguments on certbot's command line:
 
-| Option                                                            | Description                                      |
-| ----------------------------------------------------------------- | ------------------------------------------------ |
+| Option                                   | Description                                      |
+| ---------------------------------------- | ------------------------------------------------ |
 | `--authenticator dns-corenetworks`       | select the authenticator plugin (Required)       |
 | `--dns-corenetworks-credentials`         | Hetzner DNS API credentials INI file. (Required) |
 | `--dns-corenetworks-propagation-seconds` | Seconds to wait for the TXT record to propagate  |
