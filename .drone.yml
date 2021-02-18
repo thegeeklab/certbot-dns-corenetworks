@@ -12,7 +12,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run yapf -dr ./certbot_dns_corenetworks
   environment:
     PY_COLORS: 1
@@ -22,7 +22,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run flake8 ./certbot_dns_corenetworks
   environment:
     PY_COLORS: 1
@@ -51,7 +51,7 @@ steps:
   image: python:3.6
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run pytest
   - poetry version
   environment:
@@ -63,7 +63,7 @@ steps:
   image: python:3.7
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run pytest
   - poetry version
   environment:
@@ -75,7 +75,7 @@ steps:
   image: python:3.8
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run pytest
   - poetry version
   environment:
@@ -87,7 +87,7 @@ steps:
   image: python:3.9
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run pytest
   - poetry version
   environment:
@@ -133,7 +133,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
-  - poetry install -q
+  - poetry install
   - poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test
   environment:
     PY_COLORS: 1
@@ -246,6 +246,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 6cced83e090b6141e2c3989e44cd2091bc5a8156efdfc26f6fb906a19891f8cf
+hmac: 0939f1045b005190372909e1f724963cd2b456f5f1e4d9ed796cc053d1641310
 
 ...

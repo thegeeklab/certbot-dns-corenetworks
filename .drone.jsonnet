@@ -6,7 +6,7 @@ local PythonVersion(pyversion='3.6') = {
   },
   commands: [
     'pip install poetry poetry-dynamic-versioning -qq',
-    'poetry install -q',
+    'poetry install',
     'poetry run pytest',
     'poetry version',
   ],
@@ -32,7 +32,7 @@ local PipelineLint = {
       commands: [
         'git fetch -tq',
         'pip install poetry poetry-dynamic-versioning -qq',
-        'poetry install -q',
+        'poetry install',
         'poetry run yapf -dr ./certbot_dns_corenetworks',
       ],
     },
@@ -45,7 +45,7 @@ local PipelineLint = {
       commands: [
         'git fetch -tq',
         'pip install poetry poetry-dynamic-versioning -qq',
-        'poetry install -q',
+        'poetry install',
         'poetry run flake8 ./certbot_dns_corenetworks',
       ],
     },
@@ -118,7 +118,7 @@ local PipelineSecurity = {
       commands: [
         'git fetch -tq',
         'pip install poetry poetry-dynamic-versioning -qq',
-        'poetry install -q',
+        'poetry install',
         'poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test',
       ],
     },
