@@ -12,6 +12,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run yapf -dr ./certbot_dns_corenetworks
   environment:
@@ -22,6 +23,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run flake8 ./certbot_dns_corenetworks
   environment:
@@ -51,6 +53,7 @@ steps:
   image: python:3.6
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -63,6 +66,7 @@ steps:
   image: python:3.7
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -75,6 +79,7 @@ steps:
   image: python:3.8
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -87,6 +92,7 @@ steps:
   image: python:3.9
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -133,6 +139,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test
   environment:
@@ -246,6 +253,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 0939f1045b005190372909e1f724963cd2b456f5f1e4d9ed796cc053d1641310
+hmac: 5b86a521681485b2518a6bd3ff3e490bb07d076ac94d26ff84b86749b3d045fc
 
 ...
