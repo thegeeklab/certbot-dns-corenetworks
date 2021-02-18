@@ -1,5 +1,5 @@
 local PythonVersion(pyversion='3.6') = {
-  name: 'python' + std.strReplace(pyversion, '.', ''),
+  name: 'python' + std.strReplace(pyversion, '.', '') + '-pytest',
   image: 'python:' + pyversion,
   environment: {
     PY_COLORS: 1,
@@ -86,10 +86,10 @@ local PipelineTest = {
         'codecov --required -X gcov',
       ],
       depends_on: [
-        'python36',
-        'python37',
-        'python38',
-        'python39',
+        'python36-pytest',
+        'python37-pytest',
+        'python38-pytest',
+        'python39-pytest',
       ],
     },
   ],

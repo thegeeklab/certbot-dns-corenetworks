@@ -47,7 +47,7 @@ steps:
   commands:
   - git fetch -tq
 
-- name: python36
+- name: python36-pytest
   image: python:3.6
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
@@ -59,7 +59,7 @@ steps:
   depends_on:
   - fetch
 
-- name: python37
+- name: python37-pytest
   image: python:3.7
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
@@ -71,7 +71,7 @@ steps:
   depends_on:
   - fetch
 
-- name: python38
+- name: python38-pytest
   image: python:3.8
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
@@ -83,7 +83,7 @@ steps:
   depends_on:
   - fetch
 
-- name: python39
+- name: python39-pytest
   image: python:3.9
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
@@ -105,10 +105,10 @@ steps:
       from_secret: codecov_token
     PY_COLORS: 1
   depends_on:
-  - python36
-  - python37
-  - python38
-  - python39
+  - python36-pytest
+  - python37-pytest
+  - python38-pytest
+  - python39-pytest
 
 trigger:
   ref:
@@ -246,6 +246,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 423f275d3560cbd44a67f7f05e225355ea443660a74e8dbc8121dd03eac82857
+hmac: 6cced83e090b6141e2c3989e44cd2091bc5a8156efdfc26f6fb906a19891f8cf
 
 ...
