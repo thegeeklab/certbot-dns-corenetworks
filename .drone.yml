@@ -51,6 +51,7 @@ steps:
   image: python:3.6
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -63,6 +64,7 @@ steps:
   image: python:3.7
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -75,6 +77,7 @@ steps:
   image: python:3.8
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -87,6 +90,7 @@ steps:
   image: python:3.9
   commands:
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run pytest
   - poetry version
@@ -246,6 +250,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 0939f1045b005190372909e1f724963cd2b456f5f1e4d9ed796cc053d1641310
+hmac: 6c5ed27d29b349ea8f87568de9ad4c62312c37b8dc56daf0e2f73fdaa280a453
 
 ...
