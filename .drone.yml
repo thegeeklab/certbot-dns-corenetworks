@@ -12,6 +12,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run yapf -dr ./certbot_dns_corenetworks
   environment:
@@ -22,6 +23,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run flake8 ./certbot_dns_corenetworks
   environment:
@@ -137,6 +139,7 @@ steps:
   commands:
   - git fetch -tq
   - pip install poetry poetry-dynamic-versioning -qq
+  - poetry config experimental.new-installer false
   - poetry install
   - poetry run bandit -r ./certbot_dns_corenetworks -x ./certbot_dns_corenetworks/test
   environment:
@@ -250,6 +253,6 @@ depends_on:
 
 ---
 kind: signature
-hmac: 6c5ed27d29b349ea8f87568de9ad4c62312c37b8dc56daf0e2f73fdaa280a453
+hmac: 5b86a521681485b2518a6bd3ff3e490bb07d076ac94d26ff84b86749b3d045fc
 
 ...
