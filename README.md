@@ -8,6 +8,8 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/thegeeklab/certbot-dns-corenetworks)](https://github.com/thegeeklab/certbot-dns-corenetworks/graphs/contributors)
 [![License: MIT](https://img.shields.io/github/license/thegeeklab/certbot-dns-corenetworks)](https://github.com/thegeeklab/certbot-dns-corenetworks/blob/main/LICENSE)
 
+> **Discontinued:** This project is no longer maintained.
+
 ## Install
 
 Install this package via pip in the same python environment where you installed your certbot.
